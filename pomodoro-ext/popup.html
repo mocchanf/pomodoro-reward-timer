@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ポモドーロ ご褒美タイマー</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ======= メイン画面 ======= -->
+<div id="mainView">
+
+  <!-- ヘッダー -->
+  <div class="header" id="header">
+    <div class="phase-title" id="phaseTitle">🍅 作業中</div>
+    <div class="session-badge" id="sessionBadge">0 セッション完了</div>
+  </div>
+
+  <!-- タイマー -->
+  <div class="timer-section">
+    <div class="timer-display" id="timerDisplay">25:00</div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+
+  <!-- コントロール -->
+  <div class="controls">
+    <button class="btn btn-primary" id="startBtn">▶ 開始</button>
+    <button class="btn btn-secondary" id="resetBtn">↺ リセット</button>
+  </div>
+
+  <!-- サイコロセクション（休憩中のみ表示） -->
+  <div class="dice-section" id="diceSection">
+    <div class="dice-title">🎲 サイコロを振ってご褒美を決めよう！</div>
+    <div class="dice-face" id="diceFace">🎲</div>
+    <button class="btn btn-dice" id="rollBtn">サイコロを振る！</button>
+    <div class="reward-result" id="rewardResult">
+      <div class="reward-type" id="rewardType"></div>
+      <div class="reward-content-text" id="rewardContent"></div>
+      <div class="dice-rolled-num" id="diceNum"></div>
+    </div>
+  </div>
+
+  <!-- ご褒美リスト -->
+  <div class="rewards-section">
+    <div class="rewards-toggle" id="rewardsToggle">
+      <span>🎁 ご褒美リスト（1〜6）</span>
+      <span class="toggle-arrow" id="toggleArrow">▼</span>
+    </div>
+    <div class="rewards-list" id="rewardsList"></div>
+  </div>
+
+  <!-- フッター -->
+  <div class="footer">
+    <button class="btn-link" id="settingsBtn">⚙️ 設定</button>
+  </div>
+
+</div>
+
+<!-- ======= 設定画面 ======= -->
+<div id="settingsView" class="hidden">
+  <div class="settings-wrap">
+    <div class="settings-header">
+      <button class="btn-back" id="backBtn">←</button>
+      <div class="settings-title">⚙️ 設定</div>
+    </div>
+
+    <!-- 時間設定 -->
+    <div class="setting-block">
+      <div class="setting-label">⏱ 時間設定（分）</div>
+      <div class="time-inputs">
+        <div class="time-group">
+          <div class="time-group-label">作業時間</div>
+          <input type="number" id="workMinInput" class="time-input" min="1" max="60" value="25">
+        </div>
+        <div class="time-group">
+          <div class="time-group-label">休憩時間</div>
+          <input type="number" id="breakMinInput" class="time-input" min="1" max="30" value="5">
+        </div>
+      </div>
+    </div>
+
+    <!-- ご褒美リスト編集 -->
+    <div class="setting-block">
+      <div class="setting-label">🎁 ご褒美リスト（1〜6）</div>
+      <div class="setting-note">1〜4番が当たり（67%）、5〜6番がハズレ（33%）の確率です</div>
+      <div id="rewardEditList"></div>
+    </div>
+
+    <button class="save-btn" id="saveBtn">💾 保存する</button>
+    <div class="save-msg" id="saveMsg"></div>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
