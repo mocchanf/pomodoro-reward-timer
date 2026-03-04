@@ -49,7 +49,7 @@
 ### 方法②：ソースから手動インストール
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/pomodoro-reward-timer.git
+git clone https://github.com/mocchanf/pomodoro-reward-timer.git
 ```
 
 その後、上記の手順 3〜6 でフォルダを読み込む。
